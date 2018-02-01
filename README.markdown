@@ -3,7 +3,7 @@
 ## Instructions
 
 Using the code already in this repository as a starting point, please create
-the front end for a simple "ToDo" application. The applicaction should allow
+the front end for a simple "ToDo" application. The application should allow
 the user to:
 
 - Create a new todo item
