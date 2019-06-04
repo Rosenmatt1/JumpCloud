@@ -7,7 +7,9 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      reminders: []
+      reminders: [],
+      description: "",
+      done: false
     }
   }
 
@@ -17,7 +19,6 @@ class App extends Component {
       .then(res => {
         this.setState({
           reminders: res,
-          newReminder: ""
         })
       })
   }
@@ -25,7 +26,27 @@ class App extends Component {
   addReminder = (e) => {
     e.preventDefault()
     this.setState({
-      newReminder: e.target.value
+      description: e.target.value
+    })
+  }
+
+  createReminder = (e) => {
+    e.preventDefault()
+    const newReminder = {
+      done: this.state.done,
+      description: this.state.description
+    }
+    console.log(newReminder)
+    fetch(`${url}reminders/`, {
+      method: 'POST',
+      body: JSON.stringify(newReminder),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+    this.setState({
+      reminders: [...this.state.reminders, newReminder],
     })
   }
 
