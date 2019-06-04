@@ -1,13 +1,17 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path')
 var app = express();
 var PORT = 8004;
 
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, '../build')));
+
 app.use(function(req, res, next) {
   var whitelist = [
     'http://localhost:8005',
+    'http://localhost:3000',
   ];
 
   var origin = req.headers.origin;
