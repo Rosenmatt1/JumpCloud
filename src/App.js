@@ -21,10 +21,25 @@ class App extends Component {
       })
   }
 
-
   render() {
     return (
       <div className="App">
+
+        <h1>The Jump Cloud To Do Tester</h1>
+
+        {/* props.remindersTable.map((reminder, idx) => {
+      return (
+        <Card deleteReminder={props.deleteReminder} key={idx} reminder={reminder} />
+      )
+      }) */}
+
+        {/* {this.state.reminders.map((reminder, idx) => {
+          return <div key={idx} >
+            {reminder}
+          </div>
+        })
+        } */}
+
 
       </div>
     )
