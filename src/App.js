@@ -16,9 +16,17 @@ class App extends Component {
       .then(data => data.json())
       .then(res => {
         this.setState({
-          reminders: res
+          reminders: res,
+          newReminder: ""
         })
       })
+  }
+
+  addReminder = (e) => {
+    e.preventDefault()
+    this.setState({
+      newReminder: e.target.value
+    })
   }
 
   render() {
@@ -40,6 +48,7 @@ class App extends Component {
         })
         } */}
 
+        <input onChange={(e) => this.addReminder(e)} />
 
       </div>
     )
