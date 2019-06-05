@@ -58,7 +58,7 @@ class App extends Component {
   createReminder = async (e) => {
     e.preventDefault()
     const newReminder = {
-      id: this.state.reminders.length + 1,
+      id: this.state.reminders[this.state.reminders.length -1].id + 1,
       done: this.state.done,
       description: this.state.description
     }
