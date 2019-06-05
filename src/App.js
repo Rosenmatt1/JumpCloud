@@ -18,11 +18,17 @@ class App extends Component {
     fetch(url)
       .then(data => data.json())
       .then(res => {
+        let addEdit = res.map(reminder => {
+          reminder.edit = false
+          return reminder
+        })
         this.setState({
-          reminders: res,
+          reminders: addEdit,
         })
       })
   }
+
+  
 
   completedTask = (e) => {
     e.preventDefault()
@@ -86,9 +92,10 @@ class App extends Component {
     })
   }
 
-  editReminder = () => {
+  editReminder = (id) => {
+    console.log(id)
     this.setState({
-      edit: true
+      edit: !this.state.edit
     })
   }
 
@@ -127,8 +134,7 @@ class App extends Component {
 
         <List
           reminders={this.state.reminders}
-          completed={this.state.completed}
-          remove={this.state.remove}
+          edit={this.state.edit}
           completedTask={this.completedTask}
           deleteReminder={this.deleteReminder}
           editReminder={this.editReminder}

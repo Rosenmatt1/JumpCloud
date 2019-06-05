@@ -12,8 +12,7 @@ class List extends React.Component {
             id={reminder.id}
             reminder={reminder}
             description={reminder.description}
-            completed={this.props.completed}
-            done={this.props.done}
+            edit={this.props.edit}
             deleteReminder={this.props.deleteReminder}
             completedTask={this.props.completedTask}
             editReminder={this.props.editReminder}
