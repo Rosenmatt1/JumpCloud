@@ -100,7 +100,8 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1>The Jump Cloud To Do Tester</h1>
+        <h1> The Jump Cloud To Do List </h1>
+        <i className="cloudIcon fas fa-cloud"></i>
 
         <List
           reminders={this.state.reminders}

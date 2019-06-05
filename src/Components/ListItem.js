@@ -7,7 +7,7 @@ class ListItem extends React.Component {
       <li className={this.props.done === true ? "completed" : "incomplete"}>
 
         Task: {this.props.description}
-        <label> &nbsp; &nbsp; Check Box if Completed </label>
+        <label className="text"> &nbsp; &nbsp; Check Box if Completed </label>
 
         <input
           type="checkbox"
@@ -17,7 +17,7 @@ class ListItem extends React.Component {
         />
 
         <button
-          className="removeReminder mx-3"
+          className="removeReminder text mx-3"
           onClick={() => this.props.deleteReminder(this.props)}
         >
           Remove

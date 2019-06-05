@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.text {
+  color: #777f88;
+}
+
+.cloudIcon {
+  font-size: 250%;
+  color: #36b37e;
+}
+
 .completed {
   text-decoration: line-through;
 }
@@ -10,22 +19,24 @@
   text-decoration: none;
 }
 
-.addReminder {
+.removeReminder {
   background-color: #006cac;
   color: white;
+  font-family: "lato", sans-serif;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.addReminder {
+  background-color: #36b37e;
+  color: white;
+  font-family: "lato", sans-serif;
   border-radius: 3px;
   font-weight: 700;
   height: 2em;
   /* display: block; */
 }
 
-.removeReminder {
-  background-color: #36b37e;
-  color: white;
-  border-radius: 3px;
-  font-weight: 700;
-  /* height: 2em; */
-  /* display: block; */
-}
+/* #3b434a    */
 
  
