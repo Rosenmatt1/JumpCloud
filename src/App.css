@@ -42,12 +42,12 @@
   border-radius: 3px;
   font-weight: 700;
   height: 2em;
-  /* display: block; */
 }
 
 .input {
   border: 1px solid #000000;
-  width: 50%;
+  width: 25%;
+  display: inline-block;
 }
 
 /* #3b434a    */

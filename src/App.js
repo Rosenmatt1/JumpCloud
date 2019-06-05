@@ -10,7 +10,6 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
-
     }
   }
 
@@ -129,12 +128,12 @@ class App extends Component {
 
         <input 
           className="input form-control"
+          placeholder={this.state.description === "" ? "Enter new task" : this.state.description}
           onChange={(e) => this.addReminder(e)} />
 
         <button
           className="addReminder mx-auto"
           onClick={(e) => this.createReminder(e)}
-          placeholder={this.state.description}
           type="text"
         > Create New Reminder
         </button>
