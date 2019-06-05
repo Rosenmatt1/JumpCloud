@@ -56,6 +56,7 @@ class App extends Component {
     const newReminder = {
       id: this.state.reminders[this.state.reminders.length -1].id + 1,
       done: this.state.done,
+      edit: false,
       description: this.state.description
     }
     fetch(url, {
