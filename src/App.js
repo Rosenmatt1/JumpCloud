@@ -10,9 +10,7 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
-      completed: false, 
-      done: false,
-      remove: false
+
     }
   }
 
