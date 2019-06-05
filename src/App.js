@@ -93,6 +93,7 @@ class App extends Component {
   }
 
   editReminder = (id) => {
+    console.log("editReminder")
     let editSelector = this.state.reminders.map(reminder => {
       if (reminder.id === id) {
         reminder.edit = !reminder.edit
@@ -106,6 +107,7 @@ class App extends Component {
 
   editedDescription = (e) => {
     e.preventDefault()
+    console.log("editedDescription")
     this.setState({
       newDescription: e.target.value
     })
@@ -115,15 +117,14 @@ class App extends Component {
     // e.preventDefault()
     console.log(id)
     // const editedReminder = {
-    //   // id: this.state.reminders[this.state.index].id,
     //   description: this.state.newDescription,
     // }
-    // const mappedReminders = this.state.reminders.map(reminder => {
-    //   if (this.state.reminders[this.state.index].id === reminder.id) {
-    //     this.state.reminders[this.state.index].description = this.state.newDescription
-    //   }
-    //   return reminder
-    // })
+    const mappedReminders = this.state.reminders.map(reminder => {
+      if (id === reminder.id && reminder.edit === true) {
+        reminder.description = this.state.newDescription
+      }
+      return reminder
+    })
     // await fetch(`url${this.state.reminders[this.state.index].id}`, {
     //   method: 'PUT',
     //   body: JSON.stringify(editedReminder),
@@ -132,10 +133,10 @@ class App extends Component {
     //     'Accept': 'application/json',
     //   }
     // })
-    // this.setState({
-    //   reminders: mappedReminders,
-    //   // edit: false,
-    // })
+    this.setState({
+      reminders: mappedReminders,
+      edit: false
+    })
   }
 
   render() {
