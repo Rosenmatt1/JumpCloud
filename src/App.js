@@ -114,25 +114,28 @@ class App extends Component {
   }
 
   saveChanges = async (id) => {
-    // e.preventDefault()
-    console.log(id)
-    // const editedReminder = {
-    //   description: this.state.newDescription,
-    // }
+    const editedReminder = {
+      id: id,
+      description: this.state.newDescription,
+      done: false,
+      edit: false
+    }
+    const singleReminder = this.state.reminders.filter(reminder => reminder.id === id)
+    console.log(singleReminder[0].id)
     const mappedReminders = this.state.reminders.map(reminder => {
       if (id === reminder.id && reminder.edit === true) {
         reminder.description = this.state.newDescription
       }
       return reminder
     })
-    // await fetch(`url${this.state.reminders[this.state.index].id}`, {
-    //   method: 'PUT',
-    //   body: JSON.stringify(editedReminder),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json',
-    //   }
-    // })
+    await fetch(`url${singleReminder[0].id}`, {
+      method: 'PUT',
+      body: JSON.stringify(editedReminder),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
     this.setState({
       reminders: mappedReminders,
       edit: false
