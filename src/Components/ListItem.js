@@ -8,7 +8,7 @@ class ListItem extends React.Component {
 
         <li className={this.props.reminder.done === true ? "todo completed" : "todo incomplete"}>
           <span className="task"> Task: </span>  {this.props.reminder.edit === true ? 
-          <textarea> </textarea> : this.props.description} 
+          <textarea className="change"> </textarea> : this.props.description} 
         </li>
 
         <label className="check"> &nbsp; Check if Completed </label>

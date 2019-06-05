@@ -58,6 +58,11 @@
   display: inline-block;
 }
 
+.change {
+  height: 15px;
+  font-family: "lato", sans-serif;
+}
+
 /* #3b434a    */
 
  
