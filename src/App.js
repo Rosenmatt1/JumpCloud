@@ -74,12 +74,12 @@ class App extends Component {
   }
 
   deleteReminder = async (id) => {
-    const removeReminder = this.state.reminders.filter(item => {
-      if (item.id === id) {
+    const removeReminder = this.state.reminders.filter(reminder => {
+      if (reminder.id === id) {
       }
-      return item.id
+      return reminder.id
     })
-    const returnTheRest = this.state.reminders.filter(item => item.id !== id)
+    const returnTheRest = this.state.reminders.filter(reminder => reminder.id !== id)
     await fetch(`http://localhost:8004/api/todos/${id}`, {
       method: 'DELETE',
       body: JSON.stringify(removeReminder),
@@ -94,9 +94,16 @@ class App extends Component {
   }
 
   editReminder = (id) => {
+    
     console.log(id)
+    let editSelector = this.state.reminders.map(reminder => {
+      if (reminder.id === id) {
+        reminder.edit = !reminder.edit
+      }
+      return reminder
+    })
     this.setState({
-      edit: !this.state.edit
+      reminders: editSelector
     })
   }
 
