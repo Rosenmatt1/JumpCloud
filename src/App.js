@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
+      newDescription: "",
       edit: false
     }
   }
@@ -27,8 +28,6 @@ class App extends Component {
         })
       })
   }
-
-  
 
   completedTask = (e) => {
     e.preventDefault()
@@ -102,6 +101,13 @@ class App extends Component {
     })
     this.setState({
       reminders: editSelector
+    })
+  }
+
+  editedDescription = (e) => {
+    e.preventDefault()
+    this.setState({
+      newDescription: e.target.value
     })
   }
 
