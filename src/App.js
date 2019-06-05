@@ -30,25 +30,16 @@ class App extends Component {
   }
 
   completedTask = (e) => {
-    e.preventDefault()
-    console.log("e", e.target.value)
-    let completedItem = this.state.reminders.filter(reminder => {
-      return reminder.id === Number(e.target.value)
+    const mappedCompleted = this.state.reminders.map(reminder => {
+      if (reminder.id === Number(e.target.value)) {
+        reminder.done = !reminder.done
+      }
+      return reminder
     })
-    console.log("Completed Item", completedItem)
-    completedItem[0].done === true ? completedItem[0].done = false : completedItem[0].done = true
     this.setState({
-      reminders: this.state.reminders
+      reminders: mappedCompleted
     })
   }
-
-  // const mappedCompleted = this.state.reminders.map(reminder => {
-  //   if (reminder.done === true) {
-  //     reminder.done = !reminder.done
-  //   }
-  //   return reminder
-  // })
-  // console.log(mappedCompleted)
 
   addReminder = (e) => {
     e.preventDefault()
@@ -100,7 +91,6 @@ class App extends Component {
   }
 
   editReminder = (id) => {
-    console.log("editReminder")
     let editSelector = this.state.reminders.map(reminder => {
       if (reminder.id === id) {
         reminder.edit = !reminder.edit
@@ -169,6 +159,7 @@ class App extends Component {
 
         <input 
           className="input form-control"
+          value={this.state.description}
           placeholder={this.state.description === "" ? "Enter new task" : this.state.description}
           onChange={(e) => this.addReminder(e)} />
 

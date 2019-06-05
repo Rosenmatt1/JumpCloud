@@ -1,8 +1,12 @@
 import React from 'react'
 
 class ListItem extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
+    console.log(this.props.reminder.done)
     return (
       <div>
 
@@ -13,7 +17,7 @@ class ListItem extends React.Component {
             <div>
               <input
                 className="change"
-                onChange={(e) => this.props.editedDescription(e)}
+                onChange={this.props.editedDescription}
                 placeholder="Edit Task Here"
               />
               <button
@@ -30,10 +34,11 @@ class ListItem extends React.Component {
         <label className="check"> &nbsp; Check if Completed </label>
 
         <input
-          className="mx-3"
+          className="form-check-input mx-3"
           type="checkbox"
+          checked={this.props.done}
           value={this.props.id}
-          onChange={(e) => this.props.completedTask(e)}
+          onChange={this.props.completedTask}
         />
 
         <button
