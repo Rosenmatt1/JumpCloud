@@ -107,15 +107,15 @@ class App extends Component {
 
   editedDescription = (e) => {
     e.preventDefault()
-    console.log("editedDescription")
     this.setState({
       newDescription: e.target.value
     })
   }
 
   saveChanges = async (id) => {
+    const convertIdtoNumber = Number(id)
     const editedReminder = {
-      id: id,
+      id: convertIdtoNumber,
       description: this.state.newDescription,
       done: false,
       edit: false
@@ -136,10 +136,11 @@ class App extends Component {
         'Accept': 'application/json',
       }
     })
-    this.setState({
+    await this.setState({
       reminders: mappedReminders,
       edit: false
     })
+    this.editReminder(id)
   }
 
   render() {
