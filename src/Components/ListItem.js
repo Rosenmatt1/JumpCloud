@@ -26,6 +26,13 @@ class ListItem extends React.Component {
           Remove
         </button>
 
+        <button
+          className="editReminder text mx-3"
+          onClick={() => this.props.editReminder(this.props.id)}
+        >
+          Edit
+        </button>
+
       </div>
     )
   }

@@ -44,7 +44,7 @@ class App extends Component {
     })
   }
 
-  createReminder = async (e) => {
+  createReminder = (e) => {
     e.preventDefault()
     const newReminder = {
       id: this.state.reminders[this.state.reminders.length -1].id + 1,
@@ -59,7 +59,7 @@ class App extends Component {
         'Accept': 'application/json',
       }
     })
-    await this.setState({
+    this.setState({
       reminders: [...this.state.reminders, newReminder],
       description: "",
     })
