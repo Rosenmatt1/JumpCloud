@@ -6,17 +6,17 @@ class ListItem extends React.Component {
     return (
       <div>
 
-        <li className={this.props.done === true ? "todo completed" : "todo incomplete"}>
+        <li className={this.props.completed === true ? "todo completed" : "todo incomplete"}>
           <span className="task">Task: {this.props.description} </span>
         </li>
 
         <label className="check"> &nbsp; Check if Completed </label>
 
         <input
+          className="mx-3"
           type="checkbox"
           value={this.props.id}
           onChange={this.props.completedTask}
-          className="mx-3"
         />
 
         <button

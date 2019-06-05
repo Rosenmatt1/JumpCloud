@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
-      done: false, 
+      completed: false, 
+      done: false,
       remove: false
     }
   }
@@ -27,13 +28,13 @@ class App extends Component {
 
   completedTask = (e) => {
     e.preventDefault()
-    console.log("Completed Reminder")
     let completedItem = this.state.reminders.filter(reminder => {
       return reminder.id === Number(e.target.value)
     })
+    console.log("Completed Item", completedItem)
     completedItem[0].done === true ? completedItem[0].done = false : completedItem[0].done = true
     this.setState({
-      done: !this.state.done
+      completed: !this.state.completed
     })
   }
 
@@ -100,12 +101,12 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1> The Jump Cloud To Do List </h1>
+        <h1 className="title"> The Jump Cloud To Do List </h1>
         <i className="cloudIcon fas fa-cloud"></i>
 
         <List
           reminders={this.state.reminders}
-          done={this.state.done}
+          completed={this.state.completed}
           remove={this.state.remove}
           completedTask={this.completedTask}
           deleteReminder={this.deleteReminder}
