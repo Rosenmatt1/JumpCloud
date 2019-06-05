@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
+      edit: false
     }
   }
 
@@ -85,6 +86,12 @@ class App extends Component {
     })
   }
 
+  editReminder = () => {
+    this.setState({
+      edit: true
+    })
+  }
+
   // saveChanges = async (e) => {
   //   e.preventDefault()
   //   const editedReminder = {
@@ -124,6 +131,7 @@ class App extends Component {
           remove={this.state.remove}
           completedTask={this.completedTask}
           deleteReminder={this.deleteReminder}
+          editReminder={this.editReminder}
         />
 
         <input 
