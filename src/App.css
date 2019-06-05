@@ -2,13 +2,22 @@
   text-align: center;
 }
 
-.text {
-  color: #777f88;
-}
-
 .cloudIcon {
   font-size: 250%;
   color: #36b37e;
+}
+
+.task {
+  font-weight: bold;
+  /* font-family: "lato", sans-serif; */
+}
+
+.check {
+  color: #777f88;
+}
+
+.todo {
+  display: inline-block;
 }
 
 .completed {

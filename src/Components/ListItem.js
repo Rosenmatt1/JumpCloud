@@ -4,10 +4,13 @@ class ListItem extends React.Component {
 
   render() {
     return (
-      <li className={this.props.done === true ? "completed" : "incomplete"}>
+      <div>
 
-        Task: {this.props.description}
-        <label className="text"> &nbsp; &nbsp; Check Box if Completed </label>
+        <li className={this.props.done === true ? "todo completed" : "todo incomplete"}>
+          <span className="task">Task: {this.props.description} </span>
+        </li>
+
+        <label className="check"> &nbsp; Check if Completed </label>
 
         <input
           type="checkbox"
@@ -23,7 +26,7 @@ class ListItem extends React.Component {
           Remove
         </button>
 
-      </li>
+      </div>
     )
   }
 }
