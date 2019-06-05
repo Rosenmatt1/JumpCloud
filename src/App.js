@@ -37,8 +37,7 @@ class App extends Component {
       done: this.state.done,
       description: this.state.description
     }
-    console.log(newReminder)
-    fetch(`${url}api/todos`, {
+    fetch(url, {
       method: 'POST',
       body: JSON.stringify(newReminder),
       headers: {
@@ -48,7 +47,7 @@ class App extends Component {
     })
     await this.setState({
       reminders: [...this.state.reminders, newReminder],
-      description: " ",
+      description: "",
     })
   }
 
@@ -60,7 +59,7 @@ class App extends Component {
       return item.id
     })
     const returnTheRest = this.state.reminders.filter(item => item.id !== id)
-    await fetch(`${url}todos/:${id}`, {
+    await fetch(`http://localhost:8004/api/todos/${id}`, {
       method: 'DELETE',
       body: JSON.stringify(removeReminder),
       headers: {
