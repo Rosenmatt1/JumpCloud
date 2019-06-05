@@ -96,8 +96,6 @@ class App extends Component {
         > Create New Reminder
         </button>
 
-        <button onClick={(id) => this.deleteReminder(id)}> Delete </button>
-
       </div>
     )
   }

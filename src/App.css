@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
+.incomplete {
+  text-decoration: none;
+}
+
 /* greenish blue */
 /* #36b37e */   
 

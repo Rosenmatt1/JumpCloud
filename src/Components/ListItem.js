@@ -19,7 +19,7 @@ class ListItem extends React.Component {
           onClick={() => this.props.deleteReminder(this.props)}
           className="mx-3"
         >
-          Click to Remove
+          Remove
       </button>
       </li>
     )
