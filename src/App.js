@@ -14,7 +14,7 @@ class App extends Component {
       edit: false
     }
   }
-
+  
   componentDidMount() {
     fetch(url)
       .then(data => data.json())
@@ -118,14 +118,13 @@ class App extends Component {
       edit: false
     }
     const singleReminder = this.state.reminders.filter(reminder => reminder.id === id)
-    console.log(singleReminder[0].id)
     const mappedReminders = this.state.reminders.map(reminder => {
       if (id === reminder.id && reminder.edit === true) {
         reminder.description = this.state.newDescription
       }
       return reminder
     })
-    await fetch(`url${singleReminder[0].id}`, {
+    await fetch(`http://localhost:8004/api/todos/${singleReminder[0].id}`, {
       method: 'PUT',
       body: JSON.stringify(editedReminder),
       headers: {
@@ -144,7 +143,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1 className="title"> The Jump Cloud To Do List </h1>
+        <h1 className="title"> The JumpCloud To Do List </h1>
         <i className="cloudIcon fas fa-cloud"></i>
 
         <List
