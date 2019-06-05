@@ -42,6 +42,13 @@ class App extends Component {
     })
   }
 
+  // const mappedCompleted = this.state.reminders.map(reminder => {
+  //   if (reminder.done === true) {
+  //     reminder.done = !reminder.done
+  //   }
+  //   return reminder
+  // })
+  // console.log(mappedCompleted)
 
   addReminder = (e) => {
     e.preventDefault()
@@ -54,7 +61,7 @@ class App extends Component {
     e.preventDefault()
     const newReminder = {
       id: this.state.reminders[this.state.reminders.length -1].id + 1,
-      done: this.state.done,
+      done: false,
       edit: false,
       description: this.state.description
     }
