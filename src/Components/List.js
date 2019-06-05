@@ -10,7 +10,9 @@ class List extends React.Component {
           return <ListItem
             key={reminder.id}
             id={reminder.id}
+            reminder={reminder}
             description={reminder.description}
+            completed={this.props.completed}
             done={this.props.done}
             deleteReminder={this.props.deleteReminder}
             completedTask={this.props.completedTask}

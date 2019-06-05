@@ -45,6 +45,11 @@
   /* display: block; */
 }
 
+.input {
+  border: 1px solid #000000;
+  width: 50%;
+}
+
 /* #3b434a    */
 
  

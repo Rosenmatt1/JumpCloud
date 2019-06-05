@@ -6,8 +6,8 @@ class ListItem extends React.Component {
     return (
       <div>
 
-        <li className={this.props.completed === true ? "todo completed" : "todo incomplete"}>
-          <span className="task">Task: {this.props.description} </span>
+        <li className={this.props.reminder.done === true ? "todo completed" : "todo incomplete"}>
+          <span className="task"> Task: </span> {this.props.description} 
         </li>
 
         <label className="check"> &nbsp; Check if Completed </label>

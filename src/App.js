@@ -28,25 +28,17 @@ class App extends Component {
 
   completedTask = (e) => {
     e.preventDefault()
+    console.log("e", e.target.value)
     let completedItem = this.state.reminders.filter(reminder => {
       return reminder.id === Number(e.target.value)
     })
     console.log("Completed Item", completedItem)
     completedItem[0].done === true ? completedItem[0].done = false : completedItem[0].done = true
     this.setState({
-      completed: !this.state.completed
+      reminders: this.state.reminders
     })
   }
 
-  // completedTask = (e) => {
-  //   let completedItem = this.state.todos.filter(todo => {
-  //     return todo.id === Number(e.target.value)
-  //   })
-  //   completedItem[0].completed === true ? completedItem[0].completed = false : completedItem[0].completed = true
-  //   this.setState({
-  //     todos: this.state.todos
-  //   })
-  // }
 
   addReminder = (e) => {
     e.preventDefault()
@@ -78,15 +70,11 @@ class App extends Component {
 
   deleteReminder = async (id) => {
     const removeReminder = this.state.reminders.filter(item => {
-      console.log("item.id", item.id)
-      console.log("id", id)
       if (item.id === id) {
       }
       return item.id
     })
-    console.log("removeReminder", removeReminder)
     const returnTheRest = this.state.reminders.filter(item => item.id !== id)
-    console.log("returnTheRest", returnTheRest)
     await fetch(`http://localhost:8004/api/todos/${id}`, {
       method: 'DELETE',
       body: JSON.stringify(removeReminder),
@@ -116,7 +104,7 @@ class App extends Component {
         />
 
         <input 
-          className="form-control"
+          className="input form-control"
           onChange={(e) => this.addReminder(e)} />
 
         <button
