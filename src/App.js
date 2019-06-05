@@ -88,6 +88,32 @@ class App extends Component {
     })
   }
 
+  // saveChanges = async (e) => {
+  //   e.preventDefault()
+  //   const editedReminder = {
+  //     // id: this.state.reminders[this.state.index].id,
+  //     description: this.state.newDescription,
+  //   }
+  //   const mappedReminders = this.state.reminders.map(reminder => {
+  //     if (this.state.flashcards[this.state.index].id === card.id) {
+  //       this.state.flashcards[this.state.index].description = this.state.newDescription
+  //     }
+  //     return reminder
+  //   })
+  //   await fetch(`url${this.state.reminders[this.state.index].id}`, {
+  //     method: 'PUT',
+  //     body: JSON.stringify(editedReminder),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //     }
+  //   })
+  //   this.setState({
+  //     reminders: mappedReminders,
+  //     // edit: false,
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
