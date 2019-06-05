@@ -111,31 +111,32 @@ class App extends Component {
     })
   }
 
-  // saveChanges = async (e) => {
-  //   e.preventDefault()
-  //   const editedReminder = {
-  //     // id: this.state.reminders[this.state.index].id,
-  //     description: this.state.newDescription,
-  //   }
-  //   const mappedReminders = this.state.reminders.map(reminder => {
-  //     if (this.state.flashcards[this.state.index].id === card.id) {
-  //       this.state.flashcards[this.state.index].description = this.state.newDescription
-  //     }
-  //     return reminder
-  //   })
-  //   await fetch(`url${this.state.reminders[this.state.index].id}`, {
-  //     method: 'PUT',
-  //     body: JSON.stringify(editedReminder),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json',
-  //     }
-  //   })
-  //   this.setState({
-  //     reminders: mappedReminders,
-  //     // edit: false,
-  //   })
-  // }
+  saveChanges = async (id) => {
+    // e.preventDefault()
+    console.log(id)
+    // const editedReminder = {
+    //   // id: this.state.reminders[this.state.index].id,
+    //   description: this.state.newDescription,
+    // }
+    // const mappedReminders = this.state.reminders.map(reminder => {
+    //   if (this.state.reminders[this.state.index].id === reminder.id) {
+    //     this.state.reminders[this.state.index].description = this.state.newDescription
+    //   }
+    //   return reminder
+    // })
+    // await fetch(`url${this.state.reminders[this.state.index].id}`, {
+    //   method: 'PUT',
+    //   body: JSON.stringify(editedReminder),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json',
+    //   }
+    // })
+    // this.setState({
+    //   reminders: mappedReminders,
+    //   // edit: false,
+    // })
+  }
 
   render() {
     return (
@@ -150,6 +151,8 @@ class App extends Component {
           completedTask={this.completedTask}
           deleteReminder={this.deleteReminder}
           editReminder={this.editReminder}
+          editedDescription={this.editedDescription}
+          saveChanges={this.saveChanges}
         />
 
         <input 

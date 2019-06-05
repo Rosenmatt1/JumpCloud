@@ -7,8 +7,24 @@ class ListItem extends React.Component {
       <div>
 
         <li className={this.props.reminder.done === true ? "todo completed" : "todo incomplete"}>
-          <span className="task"> Task: </span>  {this.props.reminder.edit === true ? 
-          <textarea className="change"> </textarea> : this.props.description} 
+          <span className="task"> Task: </span>
+          {this.props.reminder.edit === true
+            ? 
+            <div>
+              <input
+                className="change"
+                onChange={(e) => this.props.editedDescription(e)}
+                placeholder="Edit Task Here"
+              />
+              <button
+                className="reminderButton text mx-3"
+                onClick={() => this.props.saveChanges(this.props.id)}
+              >
+                Save
+              </button>
+            </div>
+            : 
+            this.props.description}
         </li>
 
         <label className="check"> &nbsp; Check if Completed </label>
@@ -21,14 +37,14 @@ class ListItem extends React.Component {
         />
 
         <button
-          className="removeReminder text mx-3"
+          className="reminderButton text mx-3"
           onClick={() => this.props.deleteReminder(this.props.id)}
         >
           Remove
         </button>
 
         <button
-          className="editReminder text mx-3"
+          className="reminderButton text mx-3"
           onClick={() => this.props.editReminder(this.props.id)}
         >
           Edit

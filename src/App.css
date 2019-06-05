@@ -27,15 +27,7 @@
   text-decoration: none;
 }
 
-.removeReminder {
-  background-color: #006cac;
-  color: white;
-  font-family: "lato", sans-serif;
-  border-radius: 3px;
-  font-weight: 700;
-}
-
-.editReminder {
+.reminderButton {
   background-color: #006cac;
   color: white;
   font-family: "lato", sans-serif;

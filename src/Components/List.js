@@ -15,7 +15,9 @@ class List extends React.Component {
             edit={this.props.edit}
             deleteReminder={this.props.deleteReminder}
             completedTask={this.props.completedTask}
+            editedDescription={this.props.editedDescription}
             editReminder={this.props.editReminder}
+            saveChanges={this.props.saveChanges}
           />
         })}
       </ul>
