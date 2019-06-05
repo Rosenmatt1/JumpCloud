@@ -94,8 +94,6 @@ class App extends Component {
   }
 
   editReminder = (id) => {
-    
-    console.log(id)
     let editSelector = this.state.reminders.map(reminder => {
       if (reminder.id === id) {
         reminder.edit = !reminder.edit

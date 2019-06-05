@@ -7,7 +7,7 @@ class ListItem extends React.Component {
       <div>
 
         <li className={this.props.reminder.done === true ? "todo completed" : "todo incomplete"}>
-          <span className="task"> Task: </span>  {this.props.edit === true ? 
+          <span className="task"> Task: </span>  {this.props.reminder.edit === true ? 
           <textarea> </textarea> : this.props.description} 
         </li>
 
