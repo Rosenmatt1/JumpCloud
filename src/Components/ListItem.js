@@ -17,8 +17,8 @@ class ListItem extends React.Component {
         />
 
         <button
+          className="removeReminder mx-3"
           onClick={() => this.props.deleteReminder(this.props)}
-          className="mx-3"
         >
           Remove
         </button>
