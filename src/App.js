@@ -30,14 +30,15 @@ class App extends Component {
     })
   }
 
-  createReminder = (e) => {
+  createReminder = async (e) => {
     e.preventDefault()
     const newReminder = {
+      id: this.state.reminders.length + 1,
       done: this.state.done,
       description: this.state.description
     }
     console.log(newReminder)
-    fetch(`${url}reminders/`, {
+    fetch(`${url}api/todos`, {
       method: 'POST',
       body: JSON.stringify(newReminder),
       headers: {
@@ -45,8 +46,30 @@ class App extends Component {
         'Accept': 'application/json',
       }
     })
-    this.setState({
+    await this.setState({
       reminders: [...this.state.reminders, newReminder],
+      description: " ",
+    })
+  }
+
+  deleteReminder = async (id) => {
+    const removeReminder = this.state.reminders.filter(item => {
+      if (item.id === id
+      ) {
+      }
+      return item.id
+    })
+    const returnTheRest = this.state.reminders.filter(item => item.id !== id)
+    await fetch(`${url}todos/:${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify(removeReminder),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+    this.setState({
+      reminders: returnTheRest,
     })
   }
 
@@ -70,6 +93,13 @@ class App extends Component {
         } */}
 
         <input onChange={(e) => this.addReminder(e)} />
+
+        <button
+          onClick={(e) => this.createReminder(e)}
+          placeholder={this.state.description}
+          type="text"
+        >Create New Reminder
+        </button>
 
       </div>
     )
