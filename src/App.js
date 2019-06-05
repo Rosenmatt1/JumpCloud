@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import List from './Components/List.js'
 
 const url = 'http://localhost:8004/api/todos'
 
@@ -9,7 +10,8 @@ class App extends Component {
     this.state = {
       reminders: [],
       description: "",
-      done: false
+      done: false, 
+      remove: false
     }
   }
 
@@ -53,8 +55,7 @@ class App extends Component {
 
   deleteReminder = async (id) => {
     const removeReminder = this.state.reminders.filter(item => {
-      if (item.id === id
-      ) {
+      if (item.id === id) {
       }
       return item.id
     })
@@ -72,24 +73,19 @@ class App extends Component {
     })
   }
 
+
   render() {
     return (
       <div className="App">
 
         <h1>The Jump Cloud To Do Tester</h1>
 
-        {/* props.remindersTable.map((reminder, idx) => {
-      return (
-        <Card deleteReminder={props.deleteReminder} key={idx} reminder={reminder} />
-      )
-      }) */}
-
-        {/* {this.state.reminders.map((reminder, idx) => {
-          return <div key={idx} >
-            {reminder}
-          </div>
-        })
-        } */}
+        <List
+          reminders={this.state.reminders}
+          done={this.state.done}
+          remove={this.state.remove}
+          deleteReminder={this.deleteReminder}
+        />
 
         <input onChange={(e) => this.addReminder(e)} />
 
@@ -97,8 +93,10 @@ class App extends Component {
           onClick={(e) => this.createReminder(e)}
           placeholder={this.state.description}
           type="text"
-        >Create New Reminder
+        > Create New Reminder
         </button>
+
+        <button onClick={(id) => this.deleteReminder(id)}> Delete </button>
 
       </div>
     )
