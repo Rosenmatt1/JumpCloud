@@ -25,6 +25,13 @@ class App extends Component {
       })
   }
 
+  completedTask = (e) => {
+    console.log("Completed Reminder")
+    this.setState({
+      done: !this.state.done
+    })
+  }
+
   addReminder = (e) => {
     e.preventDefault()
     this.setState({
@@ -54,6 +61,7 @@ class App extends Component {
   }
 
   deleteReminder = async (id) => {
+    console.log("delete Reminder")
     const removeReminder = this.state.reminders.filter(item => {
       if (item.id === id) {
       }
@@ -73,7 +81,6 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
       <div className="App">
@@ -84,6 +91,7 @@ class App extends Component {
           reminders={this.state.reminders}
           done={this.state.done}
           remove={this.state.remove}
+          completedTask={this.completedTask}
           deleteReminder={this.deleteReminder}
         />
 
