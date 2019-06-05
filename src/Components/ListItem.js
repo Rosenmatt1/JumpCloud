@@ -16,12 +16,12 @@ class ListItem extends React.Component {
           className="mx-3"
           type="checkbox"
           value={this.props.id}
-          onChange={this.props.completedTask}
+          onChange={(e) => this.props.completedTask(e)}
         />
 
         <button
           className="removeReminder text mx-3"
-          onClick={() => this.props.deleteReminder(this.props)}
+          onClick={() => this.props.deleteReminder(this.props.id)}
         >
           Remove
         </button>
