@@ -10,7 +10,14 @@
   text-decoration: none;
 }
 
+.addReminder {
+  background-color: #006cac;
+  color: white;
+  border-radius: 3px;
+  font-weight: 700;
+  height: 2em;
+  /* display: block; */
+}
+
 /* greenish blue */
 /* #36b37e */   
-
-/* #006cac   */

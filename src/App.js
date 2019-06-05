@@ -26,11 +26,26 @@ class App extends Component {
   }
 
   completedTask = (e) => {
+    e.preventDefault()
     console.log("Completed Reminder")
+    let completedItem = this.state.reminders.filter(reminder => {
+      return reminder.id === Number(e.target.value)
+    })
+    completedItem[0].done === true ? completedItem[0].done = false : completedItem[0].done = true
     this.setState({
       done: !this.state.done
     })
   }
+
+  // completedTask = (e) => {
+  //   let completedItem = this.state.todos.filter(todo => {
+  //     return todo.id === Number(e.target.value)
+  //   })
+  //   completedItem[0].completed === true ? completedItem[0].completed = false : completedItem[0].completed = true
+  //   this.setState({
+  //     todos: this.state.todos
+  //   })
+  // }
 
   addReminder = (e) => {
     e.preventDefault()
@@ -95,9 +110,12 @@ class App extends Component {
           deleteReminder={this.deleteReminder}
         />
 
-        <input onChange={(e) => this.addReminder(e)} />
+        <input 
+          className="form-control"
+          onChange={(e) => this.addReminder(e)} />
 
         <button
+          className="addReminder mx-auto"
           onClick={(e) => this.createReminder(e)}
           placeholder={this.state.description}
           type="text"
