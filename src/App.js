@@ -14,7 +14,7 @@ class App extends Component {
       edit: false
     }
   }
-  
+
   componentDidMount() {
     fetch(url)
       .then(data => data.json())
@@ -51,7 +51,7 @@ class App extends Component {
   createReminder = (e) => {
     e.preventDefault()
     const newReminder = {
-      id: this.state.reminders[this.state.reminders.length -1].id + 1,
+      id: this.state.reminders[this.state.reminders.length - 1].id + 1,
       done: false,
       edit: false,
       description: this.state.description
@@ -156,7 +156,7 @@ class App extends Component {
           saveChanges={this.saveChanges}
         />
 
-        <input 
+        <input
           className="input form-control"
           value={this.state.description}
           placeholder={this.state.description === "" ? "Enter new task" : this.state.description}
@@ -167,7 +167,7 @@ class App extends Component {
           onClick={(e) => this.createReminder(e)}
           type="text"
         > Create New Reminder
-        </button>
+          </button>
 
       </div>
     )
