@@ -2,9 +2,10 @@
 
 This is a simple todo application that demonstrates full CRUD funcionality skills.  
 
--Front-End Framework Used: React.js
--CSS Framework Used: Bootstrap
--Icon: FontAwesome
+- JavaScript
+- Front-End Framework Used: React.js
+- CSS Framework Used: Bootstrap
+- Icon: Font Awesome
 
 ![JumpCloud ToDo App](https://media.giphy.com/media/XCrap0SVzzOI88725k/giphy.gif)
 
