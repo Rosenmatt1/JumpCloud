@@ -51,7 +51,7 @@ class App extends Component {
   createReminder = (e) => {
     e.preventDefault()
     const newReminder = {
-      id: this.state.reminders[this.state.reminders.length - 1].id + 1,
+      id: this.state.reminders[0] ? this.state.reminders[this.state.reminders.length - 1].id + 1 : 1,
       done: false,
       edit: false,
       description: this.state.description
@@ -76,6 +76,7 @@ class App extends Component {
       }
       return reminder.id
     })
+    console.log(removeReminder)
     const returnTheRest = this.state.reminders.filter(reminder => reminder.id !== id)
     await fetch(`http://localhost:8004/api/todos/${id}`, {
       method: 'DELETE',
@@ -167,7 +168,7 @@ class App extends Component {
           onClick={(e) => this.createReminder(e)}
           type="text"
         > Create New Reminder
-          </button>
+        </button>
 
       </div>
     )
