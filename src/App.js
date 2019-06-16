@@ -75,8 +75,9 @@ class App extends Component {
       if (reminder.id === id) {
       }
       return reminder.id
+      
     })
-    console.log(removeReminder)
+    
     const returnTheRest = this.state.reminders.filter(reminder => reminder.id !== id)
     await fetch(`http://localhost:8004/api/todos/${id}`, {
       method: 'DELETE',

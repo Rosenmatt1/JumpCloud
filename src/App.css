@@ -16,7 +16,8 @@
 }
 
 .todo {
-  display: inline-block;
+  display: block;
+  float: left;
 }
 
 .completed {
@@ -25,6 +26,11 @@
 
 .incomplete {
   text-decoration: none;
+}
+
+ .container {
+  width: 50%;
+  margin: auto;
 }
 
 .reminderButton {
