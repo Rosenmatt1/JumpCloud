@@ -25,7 +25,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "webpack": "^4.29.6",
     "webpack-dev-server": "^3.2.1"
   },
